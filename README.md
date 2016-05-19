@@ -42,7 +42,7 @@ NSStrokeColorAttributeName NSStrokeWidthAttributeName（有正负效果）   空
 
 ![demo](./demo1.png)
 ### 代码
-![demo](./demo1.png)
+![demo](./demo2.png)
 
 
 
