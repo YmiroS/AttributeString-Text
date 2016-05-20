@@ -71,7 +71,12 @@ class ViewController: UIViewController {
 
 
     func renderStr(){
-        
+
+        let shadows = NSShadow()
+        shadows.shadowBlurRadius = 3
+        shadows.shadowColor = UIColor.grayColor()
+        shadows.shadowOffset = CGSize(width: -10, height: -10)
+
         let mutAttr = NSMutableAttributedString(string: testStr)
         mutAttr.addAttributes([NSForegroundColorAttributeName : UIColor.redColor()], range: NSMakeRange(0, 5))
         mutAttr.addAttributes([NSFontAttributeName : UIFont.boldSystemFontOfSize(18)], range: NSMakeRange(6, 10))
@@ -83,6 +88,19 @@ class ViewController: UIViewController {
 
         // 空心字
         mutAttr.addAttributes([NSStrokeColorAttributeName : UIColor.purpleColor() , NSStrokeWidthAttributeName : -3], range: NSMakeRange(30, 38))
+
+        //紫色的中划线
+        mutAttr.addAttributes([NSStrikethroughStyleAttributeName : 2], range: NSMakeRange(0, testStr.utf16.count))
+        mutAttr.addAttributes([NSStrikethroughColorAttributeName : UIColor.purpleColor()], range: NSMakeRange(0, testStr.utf16.count))
+        print(NSUnderlineStyle.PatternDashDotDot.rawValue)
+        //下划线
+        mutAttr.addAttributes([NSUnderlineStyleAttributeName : 3], range: NSMakeRange(0, testStr.utf16.count))
+        mutAttr.addAttributes([NSUnderlineColorAttributeName : UIColor.redColor()], range: NSMakeRange(0, testStr.utf16.count))
+        //斜体
+        mutAttr.addAttributes([NSObliquenessAttributeName : 1], range: NSMakeRange(0, testStr.utf16.count - 34))
+
+        mutAttr.addAttributes([NSShadowAttributeName : shadows], range: NSMakeRange(0, testStr.utf16.count))
+
 
         //段落样式
         let para = NSMutableParagraphStyle()
